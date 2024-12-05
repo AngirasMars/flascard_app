@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Flashcards</h1>
+    <div class="flashcards-container">
+        {% for flashcard in flashcards %}
+            <div class="flashcard">
+                <p class="flashcard-question">{{ flashcard[1] }}</p>
+                <p>{{ flashcard[2] }}</p>
+
+                <!-- Social Media Share Links -->
+                <div class="social-share">
+                    <h4>Share this Flashcard</h4>
+                    <!-- Twitter Share -->
+                    <a href="https://twitter.com/intent/tweet?url={{ url_for('view_flashcard', flashcard_id=flashcard[0], _external=True) }}&text={{ flashcard[1] }}" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Twitter_Logo_2012.svg" alt="Share on Twitter" />
+                    </a>
+
+                    <!-- Facebook Share -->
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('view_flashcard', flashcard_id=flashcard[0], _external=True) }}" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Share on Facebook" />
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

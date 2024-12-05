@@ -1,0 +1,165 @@
+/* General Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Flashcard Container */
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Flashcard Styles */
+.flashcard {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.flashcard-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.flashcard.is-flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 20px;
+}
+
+.flashcard-front {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+}
+
+.flashcard-back {
+    background-color: #f4f4f9;
+    border: 1px solid #ddd;
+    transform: rotateY(180deg);
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.nav-button:hover {
+    background-color: #45a049;
+}
+
+/* Admin Button */
+.nav-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.admin-button {
+    background-color: #FF5733;
+}
+
+.admin-button:hover {
+    background-color: #e04e2f;
+}
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    color: #666;
+    text-align: center;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Social Media Buttons */
+.social-share {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-btn {
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    transition: opacity 0.3s;
+}
+
+.facebook-btn {
+    background-color: #3b5998;
+    color: white;
+}
+
+.twitter-btn {
+    background-color: #1da1f2;
+    color: white;
+}
+
+.linkedin-btn {
+    background-color: #0077b5;
+    color: white;
+}
+
+.social-btn:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="text-center">Flashcards</h2>
+
+<!-- Check for error message -->
+{% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+{% else %}
+    <!-- Flashcard Container -->
+    <div class="flashcard-container d-flex justify-content-center align-items-center my-4">
+        <div class="flashcard" onclick="this.classList.toggle('is-flipped')">
+            <div class="flashcard-inner">
+                <!-- Front Side -->
+                <div class="flashcard-front card p-4">
+                    <p>{{ flashcard.question }}</p> <!-- Display question without "Question" label -->
+                </div>
+                <!-- Back Side -->
+                <div class="flashcard-back card p-4">
+                    <p>{{ flashcard.answer }}</p> <!-- Display answer without "Answer" label -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="d-flex justify-content-between mt-3">
+        <a href="{{ url_for('flashcards', index=prev_index) }}" class="btn btn-secondary">Previous</a>
+        <a href="{{ url_for('flashcards', index=next_index) }}" class="btn btn-secondary">Next</a>
+    </div>
+
+    <!-- Flashcard Index -->
+    <p class="mt-3 text-center">Flashcard {{ index + 1 }} of {{ total_flashcards }}</p>
+
+    <!-- Social Media Share Buttons -->
+    <div class="social-share mt-4 text-center">
+        <h4>Share this Flashcard</h4>
+        
+        <!-- Twitter Share Button -->
+        <a href="https://twitter.com/intent/tweet?url={{ url_for('flashcards', _external=True) }}&text={{ flashcard.question }}" target="_blank" class="btn btn-info m-2">
+            <i class="fab fa-twitter"></i> Twitter
+        </a>
+        
+        <!-- Facebook Share Button -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('flashcards', _external=True) }}" target="_blank" class="btn btn-primary m-2">
+            <i class="fab fa-facebook-f"></i> Facebook
+        </a>
+        
+        <!-- LinkedIn Share Button -->
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url_for('flashcards', _external=True) }}&title={{ flashcard.question }}" target="_blank" class="btn btn-primary m-2" style="background-color: #0077b5;">
+            <i class="fab fa-linkedin-in"></i> LinkedIn
+        </a>
+    </div>
+{% endif %}
+{% endblock %}
